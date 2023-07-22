@@ -7,6 +7,8 @@ import AlarmWrapper from "./Components/AlarmWrapper";
 import DigitalClock from "./Components/DigitalClock";
 import Mode from "./Components/Mode";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   const [mode, setMode] = useState(LightMode);
   const [bgcolor, setBgColor] = useState("rgb(206, 242, 255)");
@@ -21,18 +23,30 @@ function App() {
   }
   return (
     <React.Fragment>
-      <div
-        id="App"
-        style={{ background: `url("${mode}")`, backgroundColor: `${bgcolor}` }}
-      >
-        <Mode onClickHandler={modeHandler} />
-        <div className="container">
-          <AlarmWrapper>
-            <DigitalClock />
-            <TimeSelector />
-          </AlarmWrapper>
-        </div>
-      </div>
+      <BrowserRouter basename="/Medicine-reminder">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div
+                id="App"
+                style={{
+                  background: `url("${mode}")`,
+                  backgroundColor: `${bgcolor}`,
+                }}
+              >
+                <Mode onClickHandler={modeHandler} />
+                <div className="container">
+                  <AlarmWrapper>
+                    <DigitalClock />
+                    <TimeSelector />
+                  </AlarmWrapper>
+                </div>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </React.Fragment>
   );
 }
