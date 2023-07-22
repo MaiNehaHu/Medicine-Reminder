@@ -24,10 +24,10 @@ const AlarmWrapper = ({ children }) => {
         Sec = date.getSeconds(),
         ampm;
 
+      ampm = Hour >= 12 ? "PM" : "AM";
       Hour = Hour >= 12 ? Hour - 12 : Hour;
 
       Hour = Hour === 0 ? 12 : Hour;
-      ampm = Hour <= 12 ? "AM" : "PM";
       
       Hour = Hour < 10 ? `0${Hour}` : Hour;
       Min = Min < 10 ? `0${Min}` : Min;
