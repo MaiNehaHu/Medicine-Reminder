@@ -7,6 +7,7 @@ import AlarmWrapper from "./Components/AlarmWrapper";
 import DigitalClock from "./Components/DigitalClock";
 import TimeSelector from "./Components/TimeSelector";
 import Mode from "./Components/Mode";
+import PopUp from "./Components/PopUp";
 
 const LS_Key_for_mode = "dark-light-mode";
 
@@ -40,7 +41,7 @@ const Index = () => {
   document.querySelector("body").style.backgroundColor = `${bgcolor}`;
   document.querySelector("body").style.backgroundSize = "cover";
   document.querySelector("body").style.backgroundPosition = "center";
-  
+
   //get mode from Local Storage
   useEffect(() => {
     localStorage.setItem(LS_Key_for_mode, JSON.stringify(mode));

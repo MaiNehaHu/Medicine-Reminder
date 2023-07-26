@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useSelect from "../hook/useSelect";
 import { AlarmContext } from "../Components/AlarmWrapper";
+import PopUp from "./PopUp";
 
 const TimeSelector = () => {
   const [hour, setHour] = useSelect("Hour");
   const [minutes, setMinutes] = useSelect("Minutes");
   const [amPmOption, setAmPmOption] = useSelect("Am-Pm");
-  const { setAlarmTime, pauseAlarm, hasAlarm, setHasAlarm } =
+  const [popUp, setPopUp] = useState("none");
+  const { alarmTime, setAlarmTime, pauseAlarm, hasAlarm, setHasAlarm } =
     useContext(AlarmContext);
 
   const setAlarm = () => {
@@ -30,6 +32,10 @@ const TimeSelector = () => {
       !amPmOption.includes("Am-Pm")
     ) {
       setHasAlarm(true);
+      setPopUp("flex");
+      setTimeout(() => {
+        setPopUp("none");
+      }, 2000);
       setAlarmTime(`${hour}:${minutes}:00 ${amPmOption}`);
     }
   };
@@ -84,6 +90,8 @@ const TimeSelector = () => {
           {hasAlarm ? "Clear Alarm ⏰" : "Set Alarm"}
         </button>
       </div>
+
+      <PopUp time={alarmTime} style={popUp} />
     </React.Fragment>
   );
 };

@@ -59,7 +59,7 @@ body {
   padding: 1px 10px;
   font-family: "Acme", sans-serif;
   font-size: larger;
-  color:red;
+  color: red;
   border-radius: var(--rem);
   background-color: white;
 }
@@ -140,6 +140,23 @@ select > option:hover {
   color: black;
   background-color: rgb(255, 145, 0);
 }
+/**Popup*/
+#pop-up {
+  position: absolute;
+
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: rgb(132, 0, 255);
+}
 
 /*scrollbar*/
 ::-webkit-scrollbar {
@@ -173,6 +190,9 @@ select > option:hover {
     padding: 7px;
     font-size: medium;
     font-weight: 200;
+  }
+  #pop-up {
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 350px) {
