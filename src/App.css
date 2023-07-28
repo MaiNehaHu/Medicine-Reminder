@@ -7,7 +7,7 @@ body {
   height: 100vh;
   height: 100dvh;
   color: white;
-  background: url("./Banner.png");
+  background: url("./images/Banner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,11 +19,15 @@ body {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+
   overflow: hidden;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-size: cover !important;
+  background-position: center !important;
 }
 .container {
   width: 50vw;

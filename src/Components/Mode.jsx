@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Mode = ({ onClickHandler }) => {
-  const [mode, setMode] = useState(false);
+import DarkMode from "../images/DarkBanner.png";
+
+const Mode = ({ onClickHandler, modeStatus }) => {
+  const [mode, setMode] = useState(true);
+  useEffect(() => {
+    if (modeStatus == DarkMode) {
+      setMode(true);
+    } else {
+      setMode(false);
+    }
+  }, [modeStatus]);
+
   function toggleMode() {
     setMode((current) => !current);
   }
